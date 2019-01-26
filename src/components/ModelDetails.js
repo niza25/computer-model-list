@@ -1,6 +1,8 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
-export default function ModelDetail(props) {
+const ModelDetail = (props) => {
+
   return (
     <div>
       <ul>
@@ -13,4 +15,8 @@ export default function ModelDetail(props) {
   )
 }
 
+ModelDetail.propTypes = {
+  model: PropTypes.object
+}
 
+export default ModelDetail
