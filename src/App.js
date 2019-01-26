@@ -36,22 +36,22 @@ class App extends Component {
 
   updateSelection = (event) => {
     this.setState({ value: event.target.value })
-    console.log(event.target.value, 'comes from event on select')
   }
 
   addModelToStore = () => {
-    console.log(this.state.computers[this.state.value], 'this is my objModel')
-    this.props.addModel(this.state.computers[this.state.value])
+    const newObjModel = this.state.computers[this.state.value];
+    newObjModel.name = this.state.value;
+    this.props.addModel(newObjModel);
   }
 
   render() {
-    
+
     return (
-      
+
       <div className="App">
+        <ModelDetailsContainer />
         <Select computers={this.state.computers} handleChange={this.updateSelection} />
         <button onClick={this.addModelToStore} > Add Model </button>
-        <ModelDetailsContainer />
       </div>
     )
   }

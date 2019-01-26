@@ -8,14 +8,14 @@ class ModelDetailsContainer extends React.Component {
     console.log(this.props.models, 'comes from container');
     return (
 
-      this.props.models.map(model => {
+      this.props.models.map((model, i) => {
         console.log(model)
-        return <ModelDetails model={model} />
+        return <ModelDetails model={model} key={'model' + i} />
       }
       )
 
     )
-}
+  }
 }
 
 const mapStateToProps = state => {

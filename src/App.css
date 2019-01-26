@@ -1,1 +1,4 @@
-
+.App{
+  display: inline-block;
+  margin: 5vh 30vw;
+}
