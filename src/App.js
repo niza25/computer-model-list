@@ -50,6 +50,7 @@ class App extends Component {
 
       <div className="App">
         <ModelDetailsContainer />
+        <p>Pick a model:</p>
         <Select computers={this.state.computers} handleChange={this.updateSelection} />
         <button onClick={this.addModelToStore} > Add Model </button>
       </div>
