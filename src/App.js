@@ -39,8 +39,9 @@ class App extends Component {
   }
 
   addModelToStore = () => {
-    const newObjModel = this.state.computers[this.state.value];
-    newObjModel.name = this.state.value;
+    const pickedModel = this.state.value;
+    const newObjModel = this.state.computers[pickedModel];
+    newObjModel.name = pickedModel;
     this.props.addModel(newObjModel);
   }
 
