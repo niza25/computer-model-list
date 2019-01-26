@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import Select from './components/Select';
 import { addModel } from './actions/addModel';
+import ModelDetailsContainer from './components/ModelDetailsContainer';
 
 
 class App extends Component {
@@ -39,16 +40,18 @@ class App extends Component {
   }
 
   addModelToStore = () => {
-    // somehow takes the value, searches in local state and returns object
-    console.log(this.state.computers[this.state.value])
+    console.log(this.state.computers[this.state.value], 'this is my objModel')
     this.props.addModel(this.state.computers[this.state.value])
   }
 
   render() {
+    
     return (
+      
       <div className="App">
         <Select computers={this.state.computers} handleChange={this.updateSelection} />
         <button onClick={this.addModelToStore} > Add Model </button>
+        <ModelDetailsContainer />
       </div>
     )
   }
