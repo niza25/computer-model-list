@@ -16,7 +16,12 @@ const ModelDetail = (props) => {
 }
 
 ModelDetail.propTypes = {
-  model: PropTypes.object
+  model: PropTypes.shape({
+    name: PropTypes.string,
+    manufacturer: PropTypes.string,
+    year: PropTypes.number,
+    origin: PropTypes.string
+  })
 }
 
 export default ModelDetail
