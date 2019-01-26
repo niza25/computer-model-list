@@ -6,6 +6,7 @@ import Select from './components/Select';
 export default class App extends Component {
 
   state = {
+    value: '',
     computers:{
     "Ivel Z3": {
       manufacturer: "Ivasim",
@@ -30,10 +31,15 @@ export default class App extends Component {
   }
 }
 
+  updateSelection = (event) => {
+      this.setState({value: event.target.value})
+      console.log(event.target.value)
+  }
+
   render() {
     return (
       <div className="App">
-        <Select computers = {this.state.computers} />
+        <Select computers = {this.state.computers} handleChange = {this.updateSelection}/>
       </div>
     )
   }

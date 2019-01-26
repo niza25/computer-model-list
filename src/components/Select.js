@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
-export default class Select extends React.Component {
+export default class Select extends Component {
+
 
   render() {
     return (
-      
-      <select id="computer-select">
+  
+      <select onChange = {this.props.handleChange} id="computer-select">
         <option value=''>--Pick a model--</option>
         {
           Object.keys(this.props.computers).map((key, i) => {
             return <option
             value={key}
-            key={'comp' + i}>
+            key={'computer' + i}>
               {key} ({this.props.computers[key].year})
             </option>
           })
@@ -19,6 +20,4 @@ export default class Select extends React.Component {
       </select>
     )
   }
-
-
 }
