@@ -1,47 +1,46 @@
 import React, { Component } from 'react';
 import './App.css';
-import { connect } from 'react-redux';
 
 
+export default class App extends Component {
 
-class App extends Component {
-  
+  state = {
+    "Ivel Z3": {
+      manufacturer: "Ivasim",
+      year: 1969,
+      origin: "Croatia"
+    },
+    "Bally Astrocade": {
+      manufacturer: "Bally Consumer Products",
+      year: 1977,
+      origin: "USA"
+    },
+    "Sord M200 Smart Home Computer": {
+      manufacturer: "Sord Computer Corporation",
+      year: 1971,
+      origin: "Japan"
+    },
+    "Commodore 64": {
+      manufacturer: "Commodore",
+      year: 1982,
+      origin: "USA"
+    }
+  }
+
   render() {
-    console.log(this.props, 'my props - state in app')
-    console.log(this.props.computers)
-    const modelsList = Object.keys(this.props.computers)
-    console.log(modelsList);
 
     return (
-      
-      <div className="App">      
-      <form >
-        <label>Choose a model:</label>
-            <select id="computer-select">
-              <label>
-                <option value="">--Pick a model--</option>
-              </label>
-                
-                {console.log(modelsList)}
-
-                { modelsList.map((model, i )=>  
-                  (
-                    <option value={model} key={'comp' + i}> {model}</option>
-                   ))}
-            </select>
-        <button>Add</button>
-        </form>
-
+      <div className="App">
+        <select id="computer-select">
+          <option value="">--Pick a model--</option>
+          {
+            Object.keys(this.state).map((key, i)=> {
+              return <option value={key} key = {'comp' + i}> {key} ({this.state[key].year})</option>
+            })
+          }
+        </select>
       </div>
     );
   }
 }
 
-
-const mapStateToProps = (state) => {
-  return {
-    computers: state
-  }
-}
-
-export default connect(mapStateToProps)(App)
