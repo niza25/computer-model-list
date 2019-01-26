@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Select from './components/Select';
 
 
 export default class App extends Component {
 
   state = {
+    computers:{
     "Ivel Z3": {
       manufacturer: "Ivasim",
       year: 1969,
@@ -26,21 +28,14 @@ export default class App extends Component {
       origin: "USA"
     }
   }
+}
 
   render() {
-
     return (
       <div className="App">
-        <select id="computer-select">
-          <option value="">--Pick a model--</option>
-          {
-            Object.keys(this.state).map((key, i)=> {
-              return <option value={key} key = {'comp' + i}> {key} ({this.state[key].year})</option>
-            })
-          }
-        </select>
+        <Select computers = {this.state.computers} />
       </div>
-    );
+    )
   }
 }
 
